@@ -13,9 +13,9 @@ if ($login === 'root' && $password === 'root') {
 
     $start = substr($password, 0, 4);
 
-    $int_var = filter_var($password, FILTER_SANITIZE_NUMBER_INT);
-
-    if ($start === 'toto'&& $int_var%7 === 0 && $int_var !=='') {
+    $int_var = filter_var($password, FILTER_SANITIZE_NUMBER_INT); //or: $int_var = (int)filter_var($password, FILTER_SANITIZE_NUMBER_INT)
+    //                                                                         with:               
+    if ($start === 'toto'&& $int_var%7 === 0 && $int_var !=='') { //     if ($start === 'toto'&& $int_var%7 === 0 && $int_var !== 0) 
         header('Location: http://localhost:8000/succes.php');
     } else {
         header('Location: http://localhost:8000/echec.php');
